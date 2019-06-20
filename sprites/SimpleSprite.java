@@ -94,10 +94,10 @@ public class SimpleSprite extends ActiveSprite {
 			BulletSprite bullet = new BulletSprite(bulletCurrentX, bulletCurrentY, bulletVelocityX, bulletVelocityY);
 			universe.getActiveSprites().add(bullet);
 			if (bulletSound.isPlayCompleted()) {
-				bulletSound.playAsynchronous("res/missile.wav");
+//				bulletSound.playAsynchronous(" ");
 			}
 			
-			reloadTime = 1000;
+			reloadTime = 1200;
 			
 		}
 	}

@@ -17,13 +17,13 @@ public class SimpleSpriteUniverse extends Universe {
 		activeSprites.add(player1);
 		
 		//top
-		staticSprites.add(new BarrierSprite(-450,-450, 450, -434, true));
+		staticSprites.add(new BarrierSprite(-750,-384, 750, -434, true));
 		//bottom
-		staticSprites.add(new BarrierSprite(-450,434, 450, 459, true));
+		staticSprites.add(new BarrierSprite(-750,434, 750, 384, true));
 		//left
-		staticSprites.add(new BarrierSprite(-450,-450, -434, 450, true));
+		staticSprites.add(new BarrierSprite(-750,-450, -734, 450, true));
 		//right
-		staticSprites.add(new BarrierSprite(434,-450, 450, 450, true));
+		staticSprites.add(new BarrierSprite(734,-450, 750, 450, true));
 		
 	}
 	

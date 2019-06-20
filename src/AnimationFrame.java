@@ -12,8 +12,8 @@ import java.awt.event.WindowEvent;
 public class AnimationFrame extends JFrame {
 
 	final public static int FRAMES_PER_SECOND = 60;
-	final public static int SCREEN_HEIGHT = 900;
-	final public static int SCREEN_WIDTH = 900;
+	final public static int SCREEN_HEIGHT = 800;
+	final public static int SCREEN_WIDTH = 1500;
 
 	private int xpCenter = SCREEN_WIDTH / 2;
 	private int ypCenter = SCREEN_HEIGHT / 2;

@@ -44,7 +44,7 @@ public class BulletSprite extends ActiveSprite {
 			bulletSound = new AudioPlayer();
 		}
 		
-		bulletSound.playAsynchronous("res/missile.wav");
+		bulletSound.playAsynchronous("res/Gun2.wav");
 		
 	}
 	

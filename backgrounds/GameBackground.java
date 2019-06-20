@@ -18,6 +18,8 @@ public class GameBackground extends Background{
     		this.blank = ImageIO.read(new File("res/Background.png"));
     		backgroundWidth = aberhart.getWidth(null);
     		backgroundHeight = aberhart.getHeight(null);
+    		int BackgroundCenterX  = backgroundWidth / 2;
+    		int BackgroundCenterY = backgroundHeight / 2;
     		
     	}
     	catch (IOException e) {
@@ -35,7 +37,7 @@ public class GameBackground extends Background{
 		if (((col + row) % 2) == 0 ) {
 			newTile = new Tile(aberhart, x, y, backgroundWidth, backgroundHeight, false);
 		} else {
-			newTile = new Tile(blank, x, y, backgroundWidth, backgroundHeight, false);
+			newTile = new Tile(aberhart, x, y, backgroundWidth, backgroundHeight, false);
 		}
 			
 		
