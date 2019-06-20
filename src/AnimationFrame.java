@@ -249,6 +249,10 @@ public class AnimationFrame extends JFrame {
 		if (keyboard.keyDown(113)) {
 			scale /= 1.01;
 		}
+		if (keyboard.keyDown(69)) {
+			Animation.getNextUniverse();
+			System.out.println("  ");
+		}
 	}
 
 	class DrawPanel extends JPanel {

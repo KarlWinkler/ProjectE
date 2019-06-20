@@ -1,12 +1,19 @@
+import java.util.ArrayList;
+
 public class SimpleSpriteUniverse extends Universe {
 
 	public SimpleSpriteUniverse () {
 		
 		super();
 
+		background = new GameBackground();
+		//ArrayList<StaticSprite> barriers = ((MappedBackground)background).getBarriers();
+		
+		//((GameBackground) background).getBarriers();
+		
 		this.setXCenter(0);
 		this.setYCenter(0);
-		player1 = new SimpleSprite(0,0);
+		player1 = new SimpleSprite(0,350);
 		activeSprites.add(player1);
 		
 		//top
