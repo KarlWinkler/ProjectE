@@ -68,9 +68,14 @@ public class BlinkySprite extends ActiveSprite {
 //		if (keyboard.keyDown(40)) {
 //			velocityY += VELOCITY;			
 //		}
-
+		
 		
 		double deltaX = actual_delta_time * 0.001 * velocityX;
+		
+		if (checkCollisionWithBarrier(universe, deltaX, 0) == true) {
+			Animation.getNextUniverse();
+		}
+			
 		if (checkCollisionWithBarrier(universe, deltaX, 0) == false) {
 			this.addCenterX(deltaX);
 		}
