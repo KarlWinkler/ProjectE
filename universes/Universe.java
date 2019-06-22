@@ -117,15 +117,15 @@ public abstract class Universe {
     }
 
 	protected int getScore() {
-		return score;
+		return AnimationFrame.score;
 	}
 
 	protected void setScore(int score) {
-		this.score = score;
+		this.score = AnimationFrame.score;
 	}
 	
 	protected void setEndGame(int score){
-		this.finalScore = score;
+		this.finalScore = AnimationFrame.score;
 	}
 	
 	protected int getEndGame(){

@@ -29,6 +29,7 @@ public class AnimationFrame extends JFrame {
 	private JLabel lblTime;
 	private JLabel lblLevelLabel;
 	private JLabel lblLevel;
+	private JLabel lblscore;
 
 	private static Thread game;
 	private static boolean stop = false;
@@ -51,7 +52,8 @@ public class AnimationFrame extends JFrame {
 	private Background background = null;
 	boolean centreOnPlayer = false;
 	int universeLevel = 1;
-	static int score;
+	
+	static int score = 5;
 
 	public AnimationFrame()
 	{
@@ -127,6 +129,7 @@ public class AnimationFrame extends JFrame {
 		lblLevel.setBounds(1380, 22, 100, 30);
 		getContentPane().add(lblLevel);
 		getContentPane().setComponentZOrder(lblLevel, 0);
+		
 
 	}
 
@@ -216,12 +219,14 @@ public class AnimationFrame extends JFrame {
 //	}
 
 	private void updateControls() {
-		this.lblTime.setText(Long.toString(elapsed_time));
+		this.lblTime.setText(Long.toString(elapsed_time / 1000));
 		if (Animation.getUniverseCount() == 1) {
 			this.lblLevel.setText(Integer.toString(universe.getScore()));
+
 		}
 		else {
 			this.lblLevel.setText(Integer.toString(score));
+
 			
 		}
 		 
@@ -232,11 +237,14 @@ public class AnimationFrame extends JFrame {
 	}
 
 	private void updateTime() {
-
-		current_time = System.currentTimeMillis();
-		actual_delta_time = (isPaused ? 0 : current_time - last_refresh_time);
-		last_refresh_time = current_time;
-		elapsed_time += actual_delta_time;
+		if (Animation.getUniverseCount() == 1) {
+			current_time = System.currentTimeMillis();
+			actual_delta_time = (isPaused ? 0 : current_time - last_refresh_time);
+			last_refresh_time = current_time;
+			elapsed_time += actual_delta_time;
+		}
+		
+		
 
 	}
 

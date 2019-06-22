@@ -2,7 +2,7 @@
 public class EndScreen extends Universe {
 
 	
-	int score;
+	int score = 5;
 	
 	public EndScreen () {
 	
@@ -20,7 +20,7 @@ public class EndScreen extends Universe {
 	
 	public void update(KeyboardInput keyboard, long actual_delta_time) {
 
-		if (keyboard.keyDownOnce(27)) {
+		if (keyboard.keyDownOnce(32)) {
 			complete = true;
 		}
 		
@@ -28,16 +28,6 @@ public class EndScreen extends Universe {
 		disposeSprites();
 	}
 	
-	public void setScore(int score) {
-		this.score = score;
-	}
-	
-	public int getScore() {
-		return score;
-	}
-	
-	protected void setEndGame(int score){
-		System.out.println(AnimationFrame.score);
-	}
 
+	
 }
