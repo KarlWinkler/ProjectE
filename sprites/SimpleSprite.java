@@ -10,7 +10,7 @@ public class SimpleSprite extends ActiveSprite {
 	
 	private AudioPlayer bulletSound = new AudioPlayer();
 	
-	private final double VELOCITY = 200;
+	private final double VELOCITY = 400;
 
 	private static Image image;	
 

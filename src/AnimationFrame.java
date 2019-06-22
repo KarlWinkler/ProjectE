@@ -215,6 +215,10 @@ public class AnimationFrame extends JFrame {
 		this.lblLevel.setText(Integer.toString(universeLevel));
 
 	}
+	
+	public long getTime() {
+		return (current_time);
+	}
 
 	private void updateTime() {
 

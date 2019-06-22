@@ -19,7 +19,7 @@ public class Animation {
 			return new SimpleSpriteUniverse();
 		}
 		else if (universeCount == 2) {
-			return new BlinkySpriteUniverse();
+			return new EndScreen();
 		}
 		else if (universeCount == 3) {
 			return new AnimatedSpritesUniverse();

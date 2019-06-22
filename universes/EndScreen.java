@@ -1,12 +1,13 @@
 
-public class BlinkySpriteUniverse extends Universe {
+public class EndScreen extends Universe {
 
-	public BlinkySpriteUniverse () {
+	public EndScreen () {
 		
 		super();
-		
-		player1 = new BlinkySprite(0,0);
-		activeSprites.add(player1);
+		BackgroundSprite image = new BackgroundSprite(-750,-450,750,450,true);
+		staticSprites.add(image);
+//		player1 = new BlinkySprite(0,0);
+//		activeSprites.add(player1);
 		
 	}
 	
