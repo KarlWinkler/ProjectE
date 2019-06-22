@@ -16,7 +16,7 @@ public class Animation {
 		universeCount++;
 		
 		if (universeCount == 1) {
-			return new SimpleSpriteUniverse();
+			return new GameUniverse();
 		}
 		else if (universeCount == 2) {
 			return new EndScreen();

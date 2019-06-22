@@ -13,7 +13,8 @@ public class BlinkySprite extends ActiveSprite {
 	private static final int HEIGHT = 50;
 
 	private static Image normalImage;
-	double scoreMultiplyer = 1;
+	int speedScaling = 0;
+	int gameScore = speedScaling;
 
 //	private static Image ghostImage;
 //	boolean isGhost = true;
@@ -72,11 +73,12 @@ public class BlinkySprite extends ActiveSprite {
 		//LEFT	
 //		if (keyboard.keyDown(37)) {
 //			velocityX = -VELOCITY;
+		
 //		}
 		
 //		velocityY = +VELOCITY * scoreMultiplyer ;
-		velocityY = (200 + scoreMultiplyer) ;
-		System.out.println(scoreMultiplyer);
+		velocityY = (200 + speedScaling) ;
+//		System.out.println(speedScaling);
 		//UP
 //		if (keyboard.keyDown(38)) {
 //			velocityY = -VELOCITY;			
@@ -96,16 +98,23 @@ public class BlinkySprite extends ActiveSprite {
 		
 		
 		if (checkCollisionWithBullets(universe, deltaX, deltaY)){
-			scoreMultiplyer = scoreMultiplyer + 5;
+			gameScore += 5;
+			speedScaling = speedScaling + 3;
 			setMinX(randomNumber());
 			setMinY(-450); 
-			
+			universe.setScore(gameScore);
 		}
 				
 				
 		if (checkCollisionWithBarrier(universe, deltaX, 0) == true || checkCollisionWithBarrier(universe, 0, deltaY) == true) {
 //			gameOver
+			universe.setEndGame(gameScore);
 			universe.setComplete(true);
+			
+//			TESTING
+//			BackgroundSprite image = new BackgroundSprite(-750,-450,750,450,true);
+//			universe.staticSprites.add(image);
+			
 		}
 
 			

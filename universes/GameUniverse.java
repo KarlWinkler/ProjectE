@@ -1,12 +1,16 @@
 import java.util.ArrayList;
 
-public class SimpleSpriteUniverse extends Universe {
+public class GameUniverse extends Universe {
 
-	public SimpleSpriteUniverse () {
+	private int score;
+	private int finalScore;
+
+	public GameUniverse () {
 		
 		super();
 
-		background = new GameBackground();
+		GameBackgroundSprite image = new GameBackgroundSprite(-750,-450,750,450,true);
+		staticSprites.add(image);
 		//ArrayList<StaticSprite> barriers = ((MappedBackground)background).getBarriers();
 		
 		//((GameBackground) background).getBarriers();
@@ -31,7 +35,24 @@ public class SimpleSpriteUniverse extends Universe {
 	
 	public boolean centerOnPlayer() {
 		return false;
-	}		
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	protected void setEndGame(int score){
+		AnimationFrame.score = score;
+		System.out.println(AnimationFrame.score);
+	}
+	
+	protected int getEndGame(){
+		return finalScore;
+	}
+	
 	
 	public void update(KeyboardInput keyboard, long actual_delta_time) {
 
@@ -42,5 +63,9 @@ public class SimpleSpriteUniverse extends Universe {
 		updateSprites(keyboard, actual_delta_time);
 		disposeSprites();
 	}
+	
+
+	
+	
 
 }

@@ -22,6 +22,8 @@ public abstract class Universe {
 
 	//require a separate list for sprites to be removed to avoid a concurence exception
 	private ArrayList<ActiveSprite> disposalList = new ArrayList<ActiveSprite>();
+	private int score;
+	private int finalScore;
 
 	public Universe() {
 		activeSprites = new ArrayList<ActiveSprite>();
@@ -112,5 +114,22 @@ public abstract class Universe {
     	if (disposalList.size() > 0) {
     		disposalList.clear();
     	}
-    }	
+    }
+
+	protected int getScore() {
+		return score;
+	}
+
+	protected void setScore(int score) {
+		this.score = score;
+	}
+	
+	protected void setEndGame(int score){
+		this.finalScore = score;
+	}
+	
+	protected int getEndGame(){
+		return finalScore;
+	}
+	
 }

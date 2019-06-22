@@ -51,6 +51,7 @@ public class AnimationFrame extends JFrame {
 	private Background background = null;
 	boolean centreOnPlayer = false;
 	int universeLevel = 1;
+	static int score;
 
 	public AnimationFrame()
 	{
@@ -113,17 +114,17 @@ public class AnimationFrame extends JFrame {
 		getContentPane().add(lblTime);
 		getContentPane().setComponentZOrder(lblTime, 0);
 
-		lblLevelLabel = new JLabel("Level: ");
+		lblLevelLabel = new JLabel("Score: ");
 		lblLevelLabel.setForeground(Color.YELLOW);
 		lblLevelLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblLevelLabel.setBounds(528, 22, 128, 30);
+		lblLevelLabel.setBounds(1272, 22, 128, 30);
 		getContentPane().add(lblLevelLabel);
 		getContentPane().setComponentZOrder(lblLevelLabel, 0);
 
-		lblLevel = new JLabel("1");
+		lblLevel = new JLabel("0");
 		lblLevel.setForeground(Color.YELLOW);
 		lblLevel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblLevel.setBounds(672, 22, 48, 30);
+		lblLevel.setBounds(1380, 22, 100, 30);
 		getContentPane().add(lblLevel);
 		getContentPane().setComponentZOrder(lblLevel, 0);
 
@@ -151,13 +152,14 @@ public class AnimationFrame extends JFrame {
 	private void animationLoop() {
 
 		universe = Animation.getNextUniverse();
-
+		
 		while (stop == false && universe != null) {
 
 			activeSprites = universe.getActiveSprites();
 			staticSprites = universe.getStaticSprites();
 			player1 = universe.getPlayer1();
 			background = universe.getBackground();
+			score = universe.getScore();
 			universeLevel = Animation.getUniverseCount();
 			centreOnPlayer = universe.centerOnPlayer();
 			this.scale = universe.getScale();
@@ -209,11 +211,20 @@ public class AnimationFrame extends JFrame {
 		dispose();	
 
 	}
+//	private void setScore(int score) {
+//		this.score = score;
+//	}
 
 	private void updateControls() {
 		this.lblTime.setText(Long.toString(elapsed_time));
-		this.lblLevel.setText(Integer.toString(universeLevel));
-
+		if (Animation.getUniverseCount() == 1) {
+			this.lblLevel.setText(Integer.toString(universe.getScore()));
+		}
+		else {
+			this.lblLevel.setText(Integer.toString(score));
+			
+		}
+		 
 	}
 	
 	public long getTime() {
