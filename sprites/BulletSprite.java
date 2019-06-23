@@ -61,11 +61,15 @@ public class BulletSprite extends ActiveSprite {
 	    
 	    this.addCenterX(movement_x);
 	    this.addCenterY(movement_y);
+	    
+		
 
 	    lifeTime -= actual_delta_time;
 	    if (lifeTime < 0) {
 	    	this.setDispose();
 	    }	    			
-	}			
+	}		
+	
+
 	
 }

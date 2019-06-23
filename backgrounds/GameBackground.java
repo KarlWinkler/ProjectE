@@ -8,18 +8,16 @@ public class GameBackground extends Background{
 
 	
 	private Image aberhart;
-    private Image blank;
+   
     private int backgroundWidth = 0;
     private int backgroundHeight = 0;
 
     public GameBackground() {
     	try {
     		this.aberhart = ImageIO.read(new File("res/Background.png"));
-    		this.blank = ImageIO.read(new File("res/Background.png"));
     		backgroundWidth = aberhart.getWidth(null);
     		backgroundHeight = aberhart.getHeight(null);
-    		int BackgroundCenterX  = backgroundWidth / 2;
-    		int BackgroundCenterY = backgroundHeight / 2;
+    		
     		
     	}
     	catch (IOException e) {
@@ -27,23 +25,10 @@ public class GameBackground extends Background{
     	}		
     }
 	
-	public Tile getTile(int col, int row) {
-		//row is an index of tiles, with 0 being the at the origin
-		//col is an index of tiles, with 0 being the at the origin
-		int x = (col * backgroundWidth);
-		int y = (row * backgroundHeight);
-		Tile newTile = null;
-		
-		if (((col + row) % 2) == 0 ) {
-			newTile = new Tile(aberhart, x, y, backgroundWidth, backgroundHeight, false);
-		} else {
-			newTile = new Tile(aberhart, x, y, backgroundWidth, backgroundHeight, false);
-		}
-			
+	
 		
 		
-		return newTile;
-	}
+	
 	
 	public int getCol(int x) {
 		//which col is x sitting at?
@@ -79,4 +64,5 @@ public class GameBackground extends Background{
 			return 0;
 		}
 	}
+
 }

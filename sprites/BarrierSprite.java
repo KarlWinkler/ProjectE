@@ -12,7 +12,7 @@ public class BarrierSprite extends StaticSprite {
 		
 		if (image == null && showImage) {
 			try {
-				image = ImageIO.read(new File("res/blue-barrier.png"));
+				image = ImageIO.read(new File("res/Green.png"));
 			}
 			catch (IOException e) {
 				e.printStackTrace();

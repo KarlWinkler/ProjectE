@@ -16,7 +16,7 @@ public class GameBackgroundSprite extends StaticSprite{
 			}
 			catch (IOException e) {
 				e.printStackTrace();
-				//				System.out.println(e.toString());
+
 			}		
 		}
 

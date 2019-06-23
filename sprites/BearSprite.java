@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class BlinkySprite extends ActiveSprite {
+public class BearSprite extends ActiveSprite {
 
 	private static final double VELOCITY = 100;
 	private static final int WIDTH = 50;
@@ -16,26 +16,21 @@ public class BlinkySprite extends ActiveSprite {
 	int speedScaling = 0;
 	int gameScore = speedScaling;
 
-//	private static Image ghostImage;
-//	boolean isGhost = true;
 	
 	private int randomNumber() { 
 		Random rand = new Random();
 
-		// Obtain a number between [0 - 49].
+
 		int n = rand.nextInt(1200);
 		
 		n -= 600;
-		// Add 1 to the result to get a number from the required range
-		// (i.e., [1 - 50]).
 		n += 1;
 		
 		return n;
 	}
 	
-	private long elapsedTime = 0;
 
-	public BlinkySprite(double centerX, double centerY) {
+	public BearSprite(double centerX, double centerY) {
 
 		super();
 		this.setCenterX(centerX);
@@ -46,7 +41,6 @@ public class BlinkySprite extends ActiveSprite {
 		if (normalImage == null) {
 			try {
 				normalImage = ImageIO.read(new File("res/BearSprite.png"));
-//				ghostImage = ImageIO.read(new File("res/ghost.png"));
 			}
 			catch (IOException e) {
 				System.err.println(e.toString());
@@ -56,11 +50,9 @@ public class BlinkySprite extends ActiveSprite {
 	}
 
 	public Image getImage() {
-//		if (this.isGhost) {
-//			return ghostImage;
-//		} else {
+
 			return normalImage;
-//		}
+
 	}
 
 	@Override
@@ -70,28 +62,9 @@ public class BlinkySprite extends ActiveSprite {
 		double velocityX = 0;
 		double velocityY = 0;
 		
-		//LEFT	
-//		if (keyboard.keyDown(37)) {
-//			velocityX = -VELOCITY;
-		
-//		}
-		
-//		velocityY = +VELOCITY * scoreMultiplyer ;
+
 		velocityY = (200 + speedScaling) ;
-//		System.out.println(speedScaling);
-		//UP
-//		if (keyboard.keyDown(38)) {
-//			velocityY = -VELOCITY;			
-//		}
-		// RIGHT
-//		if (keyboard.keyDown(39)) {
-//			velocityX += VELOCITY;
-//		}
-		// DOWN
-//		if (keyboard.keyDown(40)) {
-//			velocityY += VELOCITY;			
-//		}
-		
+
 		
 		double deltaX = actual_delta_time * 0.001 * velocityX;
 		double deltaY = actual_delta_time * 0.001 * velocityY;
@@ -110,11 +83,7 @@ public class BlinkySprite extends ActiveSprite {
 //			gameOver
 			universe.setEndGame(gameScore);
 			universe.setComplete(true);
-			
-//			TESTING
-//			BackgroundSprite image = new BackgroundSprite(-750,-450,750,450,true);
-//			universe.staticSprites.add(image);
-			
+
 		}
 
 			
@@ -157,6 +126,7 @@ public class BlinkySprite extends ActiveSprite {
 						this.getMaxX()  + deltaX, this.getMaxY() + deltaY, 
 						activeSprite.getMinX(),activeSprite.getMinY(), 
 						activeSprite.getMaxX(), activeSprite.getMaxY())) {
+					activeSprite.setDispose();
 					colliding = true;
 					break;					
 				}

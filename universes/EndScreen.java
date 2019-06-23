@@ -9,8 +9,7 @@ public class EndScreen extends Universe {
 		super();
 		BackgroundSprite image = new BackgroundSprite(-750,-450,750,450,true);
 		staticSprites.add(image);
-//		player1 = new BlinkySprite(0,0);
-//		activeSprites.add(player1);
+
 		
 	}
 	
@@ -20,7 +19,7 @@ public class EndScreen extends Universe {
 	
 	public void update(KeyboardInput keyboard, long actual_delta_time) {
 
-		if (keyboard.keyDownOnce(32)) {
+		if (keyboard.keyDownOnce(27)) {
 			complete = true;
 		}
 		

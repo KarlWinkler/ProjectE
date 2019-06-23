@@ -11,11 +11,9 @@ public class GameUniverse extends Universe {
 
 		GameBackgroundSprite image = new GameBackgroundSprite(-750,-450,750,450,true);
 		staticSprites.add(image);
-		//ArrayList<StaticSprite> barriers = ((MappedBackground)background).getBarriers();
+	
 		
-		//((GameBackground) background).getBarriers();
-		
-		ActiveSprite bear = new BlinkySprite(0, - 425);
+		ActiveSprite bear = new BearSprite(0, - 425);
 		this.setXCenter(0);
 		this.setYCenter(0);
 		player1 = new SimpleSprite(0,350);

@@ -214,9 +214,6 @@ public class AnimationFrame extends JFrame {
 		dispose();	
 
 	}
-//	private void setScore(int score) {
-//		this.score = score;
-//	}
 
 	private void updateControls() {
 		this.lblTime.setText(Long.toString(elapsed_time / 1000));
@@ -343,45 +340,7 @@ public class AnimationFrame extends JFrame {
 			
 			int row = background.getRow((int)yTopLeft);
 			int col = background.getCol((int)xTopLeft);
-			Tile tile = null;
-
-			boolean rowDrawn = false;
-			boolean screenDrawn = false;
-			while (screenDrawn == false) {
-				while (rowDrawn == false) {
-					tile = background.getTile(col, row);
-					if (tile.getWidth() <= 0 || tile.getHeight() <= 0) {
-						//no increase in width; will cause an infinite loop, so consider this screen to be done
-						g.setColor(Color.GRAY);
-						g.fillRect(0,0, SCREEN_WIDTH, SCREEN_HEIGHT);					
-						rowDrawn = true;
-						screenDrawn = true;						
-					}
-					else {
-						Tile nextTile = background.getTile(col+1, row+1);
-						int width = translateX(nextTile.getMinX()) - translateX(tile.getMinX());
-						int height = translateY(nextTile.getMinY()) - translateY(tile.getMinY());
-						g.drawImage(tile.getImage(), translateX(tile.getMinX()), translateY(tile.getMinY()), width, height, null);
-					}					
-					//does the RHE of this tile extend past the RHE of the visible area?
-					if (translateX(tile.getMinX() + tile.getWidth()) > SCREEN_WIDTH || tile.isOutOfBounds()) {
-						rowDrawn = true;
-					}
-					else {
-						col++;
-					}
-				}
-				//does the bottom edge of this tile extend past the bottom edge of the visible area?
-				if (translateY(tile.getMinY() + tile.getHeight()) > SCREEN_HEIGHT || tile.isOutOfBounds()) {
-					screenDrawn = true;
-				}
-				else {
-					//TODO - should be passing in a double, as this represents a universe coordinate
-					col = background.getCol((int)xTopLeft);
-					row++;
-					rowDrawn = false;
-				}
-			}
+			
 		}				
 	}
 	protected void this_windowClosing(WindowEvent e) {

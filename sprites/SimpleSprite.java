@@ -46,18 +46,12 @@ public class SimpleSprite extends ActiveSprite {
 		if (keyboard.keyDown(37)) {
 			velocityX = -VELOCITY;
 		}
-		//UP
-//		if (keyboard.keyDown(38)) {
-//			velocityY = -VELOCITY;			
-//		}
+
 		// RIGHT
 		if (keyboard.keyDown(39)) {
 			velocityX += VELOCITY;
 		}
-		// DOWN
-//		if (keyboard.keyDown(40)) {
-//			velocityY += VELOCITY;			
-//		}
+		// SHOOT
 		if (keyboard.keyDown(32)) {
 			shoot(universe);	
 		}
@@ -79,11 +73,6 @@ public class SimpleSprite extends ActiveSprite {
 		
 		
 		if (reloadTime <= 0) {
-//			double currentVelocity = 
-//			double bulletVelocity = 750; // + currentVelocity;
-//			double ratio = (bulletVelocity / currentVelocity);
-//			 = ratio * velocityX + velocityX;
-//			double bulletVelocityY = ratio * velocityY + velocityY;
 			
 			double bulletVelocityX = 0;
 			double bulletVelocityY = -1000;
@@ -94,7 +83,6 @@ public class SimpleSprite extends ActiveSprite {
 			BulletSprite bullet = new BulletSprite(bulletCurrentX, bulletCurrentY, bulletVelocityX, bulletVelocityY);
 			universe.getActiveSprites().add(bullet);
 			if (bulletSound.isPlayCompleted()) {
-//				bulletSound.playAsynchronous(" ");
 			}
 			
 			reloadTime = 1200;
